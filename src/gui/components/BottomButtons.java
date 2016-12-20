@@ -1,6 +1,8 @@
 package gui.components;
 
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.Box;
 import javax.swing.JButton;
@@ -19,10 +21,17 @@ public class BottomButtons extends JPanel {
 	private JButton btnSettings;
 	private JButton btnExit;
 	
+	/**
+	 * Executes all init commands
+	 */
 	public BottomButtons() {
 		init();
+		initActionListener();
 	}
 	
+	/**
+	 * Initializes all buttons
+	 */
 	private void init() {
 		setAlignmentX(CENTER_ALIGNMENT);
 		setBorder(new EmptyBorder(10, 10, 10, 10));
@@ -38,5 +47,31 @@ public class BottomButtons extends JPanel {
 			btnExit = new JButton("Exit");
 			add(btnExit);
 		}
+	}
+	
+	/**
+	 * Initializes all action listeners
+	 */
+	private void initActionListener() {
+		btnPdfExport.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				//TODO implement PDF-Export
+			}
+		});
+		
+		btnSettings.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				//TODO: implement settings
+			}
+		});
+		
+		btnExit.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
 	}
 }
