@@ -13,8 +13,9 @@ import javax.swing.JFrame;
 
 
 /**
- * 
+ * Gui class combines and displays all gui-components.
  * @author Erik Weinstock
+ * @version 1.0
  *
  */
 public class GUI {
@@ -22,10 +23,16 @@ public class GUI {
 	public Header header;
 	public CentralResultTable table;
 	
+	/**
+	 * Executes the init-command.
+	 */
 	public GUI() {
-		
+		init();
 	}
 	
+	/**
+	 * Initializes the mainFrame and places the components on it.
+	 */
 	public void init() {
 		mainFrame = new JFrame();
 		mainFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);

@@ -13,6 +13,12 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
+/**
+ * Contains the input parts for the user interaction.
+ * @author Erik Weinstock
+ * @version 1.0
+ *
+ */
 public class HeaderInput extends JPanel {
 	
 	//private JPanel headerInputPanel;
@@ -27,10 +33,16 @@ public class HeaderInput extends JPanel {
 	private JRadioButton credit;
 	private ButtonGroup rbGroup;
 	
+	/**
+	 * Executes the init-command
+	 */
 	public HeaderInput() {
 		init();
 	}
 	
+	/**
+	 * Initializes the menus and text fields for the user input
+	 */
 	private void init() {
 		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 		
