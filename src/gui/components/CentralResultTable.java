@@ -27,7 +27,7 @@ public class CentralResultTable extends JPanel{
 	 * Initializes the layout and the JTable
 	 */
 	private void init() {
-		setLayout(new BoxLayout(this, 1));
+		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10));
 		table = new JTable(TableHelper.initTable(), TableHelper.initColumnNames());
 		add(table);
