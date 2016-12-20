@@ -16,6 +16,7 @@ import javax.swing.border.EmptyBorder;
 public class BottomButtons extends JPanel {
 	
 	private JButton btnPdfExport;
+	private JButton btnSettings;
 	private JButton btnExit;
 	
 	public BottomButtons() {
@@ -30,6 +31,9 @@ public class BottomButtons extends JPanel {
 		{
 			btnPdfExport = new JButton("PDF Export");
 			add(btnPdfExport);
+			add(Box.createRigidArea(new Dimension(10,0)));
+			btnSettings = new JButton("Settings");
+			add(btnSettings);
 			add(Box.createRigidArea(new Dimension(10,0)));
 			btnExit = new JButton("Exit");
 			add(btnExit);
