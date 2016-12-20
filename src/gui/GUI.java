@@ -1,5 +1,6 @@
 package gui;
 
+import gui.components.BottomButtons;
 import gui.components.CentralResultTable;
 import gui.components.Header;
 import gui.components.HeaderButtons;
@@ -22,6 +23,7 @@ public class GUI {
 	public JFrame mainFrame;
 	public Header header;
 	public CentralResultTable table;
+	public BottomButtons bottom;
 	
 	/**
 	 * Executes the init-command.
@@ -45,6 +47,8 @@ public class GUI {
 		mainFrame.add(header, BorderLayout.NORTH);
 		table = new CentralResultTable();
 		mainFrame.add(table, BorderLayout.CENTER);
+		bottom = new BottomButtons();
+		mainFrame.add(bottom, BorderLayout.SOUTH);
 		mainFrame.setVisible(true);
 		
 	}
