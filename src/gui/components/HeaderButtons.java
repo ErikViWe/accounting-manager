@@ -1,6 +1,8 @@
 package gui.components;
 
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -45,5 +47,28 @@ public class HeaderButtons extends JPanel {
 			add(Box.createRigidArea(new Dimension(10,0)));
 			add(btnClear);
 		}
+	}
+	
+	private void initActionListener() {
+		btnAdd.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				//TODO implement add command
+			}
+		});
+		
+		btnDisplay.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				//TODO implement display
+			}
+		});
+		
+		btnClear.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				//TODO implement clear
+			}
+		});
 	}
 }
