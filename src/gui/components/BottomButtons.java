@@ -9,6 +9,8 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import settings.Settings;
+
 /**
  * Contains buttons for PDF-Export and exit.
  * @author Erik Weinstock
@@ -63,7 +65,7 @@ public class BottomButtons extends JPanel {
 		btnSettings.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-				//TODO: implement settings
+				Settings settings = new Settings();
 			}
 		});
 		
