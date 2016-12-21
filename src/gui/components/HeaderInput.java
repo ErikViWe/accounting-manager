@@ -1,6 +1,10 @@
 package gui.components;
 
 import java.awt.Dimension;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import helperMethods.CategoryHelper;
 import helperMethods.DateHelper;
@@ -34,10 +38,11 @@ public class HeaderInput extends JPanel {
 	private ButtonGroup rbGroup;
 	
 	/**
-	 * Executes the init-command
+	 * Executes the init-commands
 	 */
 	public HeaderInput() {
 		init();
+		initMouseListener();
 	}
 	
 	/**
@@ -96,6 +101,26 @@ public class HeaderInput extends JPanel {
 
 		}
 		
+	}
+	
+	private void initMouseListener() {
+		product.addMouseListener(new MouseAdapter(){
+            public void mouseClicked(MouseEvent e){
+                product.setText("");
+            }
+        });
+		
+		amount.addMouseListener(new MouseAdapter(){
+            public void mouseClicked(MouseEvent e){
+                amount.setText("");
+            }
+        });
+		
+		price.addMouseListener(new MouseAdapter(){
+            public void mouseClicked(MouseEvent e){
+                price.setText("");
+            }
+        });
 	}
 	
 	
