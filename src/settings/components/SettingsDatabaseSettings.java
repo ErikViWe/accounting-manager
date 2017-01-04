@@ -51,7 +51,7 @@ public class SettingsDatabaseSettings {
 		lblPassword = new JLabel("Password:");
 		frame.add(lblPassword);
 		tfPassword = new JPasswordField();
-		frame.add(lblPassword);
+		frame.add(tfPassword);
 		lblIP = new JLabel("IP:");
 		frame.add(lblIP);
 		tfIP = new JTextField();
