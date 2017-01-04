@@ -64,7 +64,7 @@ public class SettingsDatabaseSettings {
 		frame.add(btnCancel);
 		btnSave = new JButton("Save");
 		frame.add(btnSave);
-		
+		frame.setVisible(true);
 	}
 	
 	/**

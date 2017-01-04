@@ -22,7 +22,7 @@ public class Settings {
 		settingsFrame.setLayout(new BorderLayout());
 		settingsFrame.setVisible(true);
 		
-		settingsBottomButtons = new SettingsBottomButtons();
+		settingsBottomButtons = new SettingsBottomButtons(settingsFrame);
 		settingsFrame.add(settingsBottomButtons, BorderLayout.SOUTH);
 	}
 

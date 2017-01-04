@@ -2,8 +2,10 @@ package settings.components;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
@@ -14,13 +16,16 @@ import javax.swing.JPanel;
  */
 public class SettingsBottomButtons extends JPanel {
 	
+	private JFrame frame;
+	private JButton btnDatabase;
 	private JButton btnSave;
 	private JButton btnClose;
 	
 	/**
 	 * Executes the init-commands
 	 */
-	public SettingsBottomButtons() {
+	public SettingsBottomButtons(JFrame frame) {
+		this.frame = frame;
 		init();
 		initActionListener();
 	}
@@ -29,6 +34,8 @@ public class SettingsBottomButtons extends JPanel {
 	 * Initializes the buttons
 	 */
 	private void init() {
+		btnDatabase = new JButton("Database-Settings");
+		add(btnDatabase);
 		btnSave = new JButton("Save");
 		add(btnSave);
 		btnClose = new JButton("Close");
@@ -39,6 +46,12 @@ public class SettingsBottomButtons extends JPanel {
 	 * Initializes the ActionListeners for each button
 	 */
 	private void initActionListener() {
+		btnDatabase.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				SettingsDatabaseSettings settings = new SettingsDatabaseSettings();
+			}
+		});
 		btnSave.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
@@ -49,7 +62,7 @@ public class SettingsBottomButtons extends JPanel {
 		btnClose.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-				//TODO implement close action
+				frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
 			}
 		});
 	}
