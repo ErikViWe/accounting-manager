@@ -35,6 +35,9 @@ public class SettingsBottomButtons extends JPanel {
 		add(btnClose);
 	}
 	
+	/**
+	 * Initializes the ActionListeners for each button
+	 */
 	private void initActionListener() {
 		btnSave.addActionListener(new ActionListener() {
 			
