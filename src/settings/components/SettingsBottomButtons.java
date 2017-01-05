@@ -8,6 +8,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import settings.Settings;
+
 /**
  * Contains the button line from the bottom of the settings interface.
  * @author Erik Weinstock
@@ -20,12 +22,15 @@ public class SettingsBottomButtons extends JPanel {
 	private JButton btnDatabase;
 	private JButton btnSave;
 	private JButton btnClose;
+	private Settings settings;
+	private SettingsDatabaseSettings settingsWindow;
 	
 	/**
 	 * Executes the init-commands
 	 */
-	public SettingsBottomButtons(JFrame frame) {
+	public SettingsBottomButtons(Settings settings, JFrame frame) {
 		this.frame = frame;
+		this.settings = settings;
 		init();
 		initActionListener();
 	}
@@ -49,7 +54,7 @@ public class SettingsBottomButtons extends JPanel {
 		btnDatabase.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-				SettingsDatabaseSettings settings = new SettingsDatabaseSettings();
+				settingsWindow = new SettingsDatabaseSettings(settings);
 			}
 		});
 		btnSave.addActionListener(new ActionListener() {

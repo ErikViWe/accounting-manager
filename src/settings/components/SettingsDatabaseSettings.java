@@ -14,6 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import settings.Settings;
+
 /**
  * Contains text-fields to save the database connection data.
  * @author Erik Weinstock
@@ -32,8 +34,12 @@ public class SettingsDatabaseSettings {
 	private JTextField tfPort;
 	private JButton btnCancel;
 	private JButton btnSave;
+	private Settings settings;
+	private String[] settingsValue;
 	
-	public SettingsDatabaseSettings() {
+	public SettingsDatabaseSettings(Settings settings) {
+		this.settings = settings;
+		this.settingsValue = settings.getValues();
 		init();
 		initActionListener();
 	}
