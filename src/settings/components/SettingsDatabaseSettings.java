@@ -8,7 +8,6 @@ import java.awt.event.WindowEvent;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
-import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
@@ -35,11 +34,11 @@ public class SettingsDatabaseSettings {
 	private JButton btnCancel;
 	private JButton btnSave;
 	private Settings settings;
-	private String[] settingsValue;
+	private String[] settingsValues;
 	
 	public SettingsDatabaseSettings(Settings settings) {
 		this.settings = settings;
-		this.settingsValue = settings.getValues();
+		this.settingsValues = settings.getValues();
 		init();
 		initActionListener();
 	}
@@ -99,7 +98,8 @@ public class SettingsDatabaseSettings {
 		btnSave.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-				//TODO implement Save
+				settings.update(settingsValues);
+				frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
 			}
 		});
 	}

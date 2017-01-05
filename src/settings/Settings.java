@@ -31,5 +31,9 @@ public class Settings {
 	public String[] getValues() {
 		return this.settingsValues;
 	}
+	
+	public void update(String[] settingsValues) {
+		this.settingsValues = settingsValues;
+	}
 
 }
