@@ -1,5 +1,5 @@
 import gui.GUI;
-import helperMethods.SettingsFileExistHelper;
+import helperMethods.SettingsHelper;
 
 
 public class Main {
@@ -11,7 +11,7 @@ public class Main {
 	 * @version 1.0
 	 */
 	public static void main(String[] args) {
-		SettingsFileExistHelper.checkForExistence();
+		SettingsHelper.checkForExistence();
 		GUI mainGUI = new GUI();
 	}
 
