@@ -11,7 +11,7 @@ import java.io.IOException;
  * @version 1.0
  *
  */
-public class SettingsFileExistHelper {
+public class SettingsHelper {
 
 	/**
 	 * Checks if settings-file exists. If not, it will create a new settings-file
@@ -66,7 +66,7 @@ public class SettingsFileExistHelper {
 	 * @return
 	 * 		path to settings-file
 	 */
-	private static String getSettingsFilePath() {
+	public static String getSettingsFilePath() {
 		//get path to .jar-file
 		File f = new File(System.getProperty("java.class.path"));
 		File dir = f.getAbsoluteFile().getParentFile();

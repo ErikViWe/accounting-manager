@@ -4,6 +4,10 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -13,6 +17,7 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import helperMethods.SettingsHelper;
 import settings.Settings;
 
 /**
@@ -41,6 +46,7 @@ public class SettingsDatabaseSettings {
 		this.settingsValues = settings.getValues();
 		init();
 		initActionListener();
+		initValues();
 	}
 	
 	
@@ -102,5 +108,21 @@ public class SettingsDatabaseSettings {
 				frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
 			}
 		});
+	}
+	
+	private void initValues() {
+		String path = SettingsHelper.getSettingsFilePath();
+		try {
+			FileReader fileReader = new FileReader(path);
+			BufferedReader bufferedReader = new BufferedReader(fileReader);
+			tfUser.setText(bufferedReader.readLine());
+			tfPassword.setText(bufferedReader.readLine());
+			tfIP.setText(bufferedReader.readLine());
+			tfPort.setText(bufferedReader.readLine());
+			bufferedReader.close();
+			fileReader.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
