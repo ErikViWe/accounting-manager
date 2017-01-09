@@ -2,8 +2,19 @@ package helperMethods;
 
 import javax.swing.JComboBox;
 
+/**
+ * Contains methods to generate and handle the categories.
+ * @author Erik Weinstock
+ * @version 1.0
+ *
+ */
 public class CategoryHelper {
 	
+	/**
+	 * Generate a JComboBox with initial values
+	 * @return
+	 * 			new JComboBox filled with values
+	 */
 	public static JComboBox<String> generateCategory() {
 		JComboBox<String> category = new JComboBox<String>();
 		category.addItem("Category");
