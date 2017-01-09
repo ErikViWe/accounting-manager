@@ -14,7 +14,7 @@ public class SettingsChecker {
 	 * @return
 	 * 			true, if name is a valid username or password
 	 */
-	public boolean checkString(String name) {
+	public static boolean checkString(String name) {
 		if (name.length() > 0) {
 			return true;
 		}
@@ -28,7 +28,7 @@ public class SettingsChecker {
 	 * @return
 	 * 		true, if ip is a valid ip
 	 */
-	public boolean checkIP(String ip) {
+	public static boolean checkIP(String ip) {
 		try {
 	        if ( ip == null || ip.isEmpty() ) {
 	            return false;
@@ -62,7 +62,7 @@ public class SettingsChecker {
 	 * @return
 	 * 			true, if the given port is a valid port
 	 */
-	public boolean checkPort(String port) {
+	public static boolean checkPort(String port) {
 		try {
 			int number = Integer.parseInt(port);
 			if (number < 65536) {

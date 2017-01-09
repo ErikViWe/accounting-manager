@@ -14,9 +14,11 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import checkerMethods.SettingsChecker;
 import helperMethods.SettingsHelper;
 import settings.Settings;
 
@@ -83,7 +85,7 @@ public class SettingsDatabaseSettings {
 		btnCancel = new JButton("Cancel");
 		frame.add(btnCancel);
 		frame.add(Box.createRigidArea(new Dimension(10, 10)));
-		btnSave = new JButton("Save");
+		btnSave = new JButton("Save and close");
 		frame.add(btnSave);
 		frame.add(Box.createRigidArea(new Dimension(10, 10)));
 		
@@ -104,8 +106,22 @@ public class SettingsDatabaseSettings {
 		btnSave.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-				settings.update(settingsValues);
-				frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+				settingsValues[0] = tfUser.getText();
+				settingsValues[1] = tfPassword.getPassword().toString();
+				settingsValues[2] = tfIP.getText();
+				settingsValues[3] = tfPort.getText();
+				if (SettingsChecker.checkString(settingsValues[0]) 
+						&& SettingsChecker.checkString(settingsValues[1]) 
+							&& SettingsChecker.checkIP(settingsValues[2]) 
+								&& SettingsChecker.checkPort(settingsValues[3])) {
+					settings.update(settingsValues);
+					frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+				} else {
+					JOptionPane.showMessageDialog(frame,
+							"Error, invalid input.",
+							"Input error",
+						    JOptionPane.ERROR_MESSAGE);
+				}
 			}
 		});
 	}
