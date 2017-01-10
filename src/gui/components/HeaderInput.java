@@ -5,6 +5,8 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import helperMethods.CategoryHelper;
 import helperMethods.DateHelper;
@@ -27,9 +29,9 @@ public class HeaderInput extends JPanel {
 	
 	//private JPanel headerInputPanel;
 	private JComboBox<Integer> day;
-	private JComboBox month;
-	private JComboBox year;
-	private JComboBox category;
+	private JComboBox<Integer> month;
+	private JComboBox<Integer> year;
+	private JComboBox<String> category;
 	private JTextField product;
 	private JTextField amount;
 	private JTextField price;
@@ -43,6 +45,7 @@ public class HeaderInput extends JPanel {
 	public HeaderInput() {
 		init();
 		initMouseListener();
+		initDate();
 	}
 	
 	/**
@@ -103,6 +106,9 @@ public class HeaderInput extends JPanel {
 		
 	}
 	
+	/**
+	 * Initializes the MouseListeners to remove text-field text on click
+	 */
 	private void initMouseListener() {
 		product.addMouseListener(new MouseAdapter(){
             public void mouseClicked(MouseEvent e){
@@ -121,6 +127,17 @@ public class HeaderInput extends JPanel {
                 price.setText("");
             }
         });
+	}
+	
+	/**
+	 * Gets the current date and displays it in the JComboBoxes
+	 */
+	private void initDate() {
+		LocalDate localDate = LocalDate.now();
+        String[] date = String.valueOf(DateTimeFormatter.ofPattern("yyyy/MM/dd").format(localDate)).split("/");
+        year.setSelectedItem(Integer.parseInt(date[0]));
+        month.setSelectedItem(Integer.parseInt(date[1]));
+        day.setSelectedItem(Integer.parseInt(date[2]));
 	}
 	
 	
