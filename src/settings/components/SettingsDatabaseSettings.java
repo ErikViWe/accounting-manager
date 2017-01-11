@@ -131,7 +131,7 @@ public class SettingsDatabaseSettings {
 	 */
 	private void displayValues() {
 		tfUser.setText(settingsValues[0]);
-		tfPassword.setText("password");
+		tfPassword.setText(settingsValues[1]);
 		tfIP.setText(settingsValues[2]);
 		tfPort.setText(settingsValues[3]);
 	} 

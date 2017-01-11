@@ -2,7 +2,9 @@ package settings;
 
 import java.awt.BorderLayout;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 
 import javax.swing.JFrame;
 
@@ -85,7 +87,19 @@ public class Settings {
 	 * Writes the settings on the settings.txt file
 	 */
 	public void save() {
-		//TODO implement save to file
+		String path = SettingsHelper.getSettingsFilePath();
+		try {
+			FileWriter fileWriter = new FileWriter(path);
+			BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+			bufferedWriter.write(settingsValues[0] + "\n");
+			bufferedWriter.write(settingsValues[1] + "\n");
+			bufferedWriter.write(settingsValues[2] + "\n");
+			bufferedWriter.write(settingsValues[3] + "\n");
+			bufferedWriter.close();
+			fileWriter.close();
+		} catch (Exception e) {
+			System.out.println(e.getStackTrace());
+		}
 	}
 
 }
