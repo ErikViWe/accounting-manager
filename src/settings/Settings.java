@@ -9,18 +9,30 @@ import javax.swing.JFrame;
 import helperMethods.SettingsHelper;
 import settings.components.SettingsBottomButtons;
 
+/**
+ * Contains components for the Settings Window and methods to load and store settings.
+ * @author Erik Weinstock
+ * @version 1.0
+ *
+ */
 public class Settings {
 	
 	private JFrame settingsFrame;
 	private SettingsBottomButtons settingsBottomButtons;
 	private String[] settingsValues;
 	
+	/**
+	 * Executes the init commands
+	 */
 	public Settings() {
 		settingsValues = new String[5];
 		init();
 		initValues();
 	}
 	
+	/**
+	 * Initializes the frame and its components
+	 */
 	private void init() {
 		settingsFrame = new JFrame();
 		settingsFrame.setSize(700, 600);
@@ -32,6 +44,9 @@ public class Settings {
 		settingsFrame.add(settingsBottomButtons, BorderLayout.SOUTH);
 	}
 	
+	/**
+	 * Loads settings into the settings array
+	 */
 	private void initValues() {
 		String path = SettingsHelper.getSettingsFilePath();
 		try {
@@ -48,14 +63,27 @@ public class Settings {
 		}
 	}
 	
+	/**
+	 * Returns the current settings
+	 * @return
+	 * 		array with current settings
+	 */
 	public String[] getValues() {
 		return this.settingsValues;
 	}
 	
+	/**
+	 * Update the settings
+	 * @param settingsValues
+	 * 		new settings values
+	 */
 	public void update(String[] settingsValues) {
 		this.settingsValues = settingsValues;
 	}
 	
+	/**
+	 * Writes the settings on the settings.txt file
+	 */
 	public void save() {
 		//TODO implement save to file
 	}

@@ -126,6 +126,9 @@ public class SettingsDatabaseSettings {
 		});
 	}
 	
+	/**
+	 * Displays all database-settings on the text-fields
+	 */
 	private void displayValues() {
 		tfUser.setText(settingsValues[0]);
 		tfPassword.setText("password");
