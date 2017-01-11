@@ -23,7 +23,7 @@ public class SettingsBottomButtons extends JPanel {
 	private JButton btnSave;
 	private JButton btnClose;
 	private Settings settings;
-	private SettingsDatabaseSettings settingsWindow;
+	private SettingsDatabaseSettings databaseSettingsWindow;
 	
 	/**
 	 * Executes the init-commands
@@ -54,13 +54,13 @@ public class SettingsBottomButtons extends JPanel {
 		btnDatabase.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-				settingsWindow = new SettingsDatabaseSettings(settings);
+				databaseSettingsWindow = new SettingsDatabaseSettings(settings);
 			}
 		});
 		btnSave.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-				//TODO implement save action
+				settings.save();
 			}
 		});
 		

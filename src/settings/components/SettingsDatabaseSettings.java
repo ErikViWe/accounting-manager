@@ -48,7 +48,7 @@ public class SettingsDatabaseSettings {
 		this.settingsValues = settings.getValues();
 		init();
 		initActionListener();
-		initValues();
+		displayValues();
 	}
 	
 	
@@ -126,19 +126,11 @@ public class SettingsDatabaseSettings {
 		});
 	}
 	
-	private void initValues() {
-		String path = SettingsHelper.getSettingsFilePath();
-		try {
-			FileReader fileReader = new FileReader(path);
-			BufferedReader bufferedReader = new BufferedReader(fileReader);
-			tfUser.setText(bufferedReader.readLine());
-			tfPassword.setText(bufferedReader.readLine());
-			tfIP.setText(bufferedReader.readLine());
-			tfPort.setText(bufferedReader.readLine());
-			bufferedReader.close();
-			fileReader.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+	private void displayValues() {
+		tfUser.setText(settingsValues[0]);
+		tfPassword.setText("password");
+		tfIP.setText(settingsValues[2]);
+		tfPort.setText(settingsValues[3]);
+	} 
+	
 }
