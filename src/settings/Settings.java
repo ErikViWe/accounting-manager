@@ -21,13 +21,13 @@ public class Settings {
 	
 	private JFrame settingsFrame;
 	private SettingsBottomButtons settingsBottomButtons;
-	private String[] settingsValues;
+	private SettingsValues settingsValues;
 	
 	/**
 	 * Executes the init commands
 	 */
 	public Settings() {
-		settingsValues = new String[5];
+		settingsValues = new SettingsValues();
 		init();
 		initValues();
 	}
@@ -54,10 +54,10 @@ public class Settings {
 		try {
 			FileReader fileReader = new FileReader(path);
 			BufferedReader bufferedReader = new BufferedReader(fileReader);
-			settingsValues[0] = bufferedReader.readLine();
-			settingsValues[1] = bufferedReader.readLine();
-			settingsValues[2] = bufferedReader.readLine();
-			settingsValues[3] = bufferedReader.readLine();
+			settingsValues.setUser(bufferedReader.readLine());
+			settingsValues.setPassword(bufferedReader.readLine());
+			settingsValues.setIP(bufferedReader.readLine());
+			settingsValues.setPort(bufferedReader.readLine());
 			bufferedReader.close();
 			fileReader.close();
 		} catch (Exception e) {
@@ -68,9 +68,9 @@ public class Settings {
 	/**
 	 * Returns the current settings
 	 * @return
-	 * 		array with current settings
+	 * 		current settings
 	 */
-	public String[] getValues() {
+	public SettingsValues getValues() {
 		return this.settingsValues;
 	}
 	
@@ -79,7 +79,7 @@ public class Settings {
 	 * @param settingsValues
 	 * 		new settings values
 	 */
-	public void update(String[] settingsValues) {
+	public void update(SettingsValues settingsValues) {
 		this.settingsValues = settingsValues;
 	}
 	
@@ -91,10 +91,10 @@ public class Settings {
 		try {
 			FileWriter fileWriter = new FileWriter(path);
 			BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-			bufferedWriter.write(settingsValues[0] + "\n");
-			bufferedWriter.write(settingsValues[1] + "\n");
-			bufferedWriter.write(settingsValues[2] + "\n");
-			bufferedWriter.write(settingsValues[3] + "\n");
+			bufferedWriter.write(settingsValues.getUser() + "\n");
+			bufferedWriter.write(settingsValues.getPassword() + "\n");
+			bufferedWriter.write(settingsValues.getIP() + "\n");
+			bufferedWriter.write(settingsValues.getPort() + "\n");
 			bufferedWriter.close();
 			fileWriter.close();
 		} catch (Exception e) {

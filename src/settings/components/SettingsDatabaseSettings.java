@@ -21,6 +21,7 @@ import javax.swing.JTextField;
 import checkerMethods.SettingsChecker;
 import helperMethods.SettingsHelper;
 import settings.Settings;
+import settings.SettingsValues;
 
 /**
  * Contains text-fields to save the database connection data.
@@ -40,11 +41,9 @@ public class SettingsDatabaseSettings {
 	private JTextField tfPort;
 	private JButton btnCancel;
 	private JButton btnSave;
-	private Settings settings;
-	private String[] settingsValues;
+	private SettingsValues settingsValues;
 	
 	public SettingsDatabaseSettings(Settings settings) {
-		this.settings = settings;
 		this.settingsValues = settings.getValues();
 		init();
 		initActionListener();
@@ -106,15 +105,14 @@ public class SettingsDatabaseSettings {
 		btnSave.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-				settingsValues[0] = tfUser.getText();
-				settingsValues[1] = tfPassword.getPassword().toString();
-				settingsValues[2] = tfIP.getText();
-				settingsValues[3] = tfPort.getText();
-				if (SettingsChecker.checkString(settingsValues[0]) 
-						&& SettingsChecker.checkString(settingsValues[1]) 
-							&& SettingsChecker.checkIP(settingsValues[2]) 
-								&& SettingsChecker.checkPort(settingsValues[3])) {
-					settings.update(settingsValues);
+				if (SettingsChecker.checkString(tfUser.getText()) 
+						&& SettingsChecker.checkString(tfPassword.getPassword().toString()) 
+							&& SettingsChecker.checkIP(tfIP.getText()) 
+								&& SettingsChecker.checkPort(tfPort.getText())) {
+					settingsValues.setUser(tfUser.getText());
+					settingsValues.setPassword(tfPassword.getPassword().toString());
+					settingsValues.setIP(tfIP.getText());
+					settingsValues.setPort(tfPort.getText());
 					frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
 				} else {
 					JOptionPane.showMessageDialog(frame,
@@ -130,10 +128,10 @@ public class SettingsDatabaseSettings {
 	 * Displays all database-settings on the text-fields
 	 */
 	private void displayValues() {
-		tfUser.setText(settingsValues[0]);
-		tfPassword.setText(settingsValues[1]);
-		tfIP.setText(settingsValues[2]);
-		tfPort.setText(settingsValues[3]);
+		tfUser.setText(settingsValues.getUser());
+		tfPassword.setText(settingsValues.getPassword());
+		tfIP.setText(settingsValues.getIP());
+		tfPort.setText(settingsValues.getPort());
 	} 
 	
 }
