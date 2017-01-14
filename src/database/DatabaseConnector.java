@@ -4,6 +4,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.Statement;
 
 import settings.SettingsValues;
 
@@ -60,6 +61,20 @@ public class DatabaseConnector {
             }
         }
     }
+	
+	public void addTransaction(DatabaseAddQuery transaction) {
+		String command = "INSERT INTO `accounting_data`(`id`, `date`, `category`, `product`, `amount`, `debit`, `credit`) VALUES ";
+		connect();
+		try {
+            Statement myStatement = (Statement) this.connection.createStatement();
+            myStatement.executeUpdate(command + transaction.getValues());
+            System.out.println("Success!");
+        }
+        catch (SQLException e) {
+            System.out.println(e);
+        }
+        disconnect();
+	}
 	
 
 }
