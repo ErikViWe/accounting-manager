@@ -12,6 +12,7 @@ public class SettingsValues {
 	private String password;
 	private String ip;
 	private String port;
+	private String databaseName;
 	
 	/**
 	 * Generates the SettingsValuse object
@@ -57,6 +58,15 @@ public class SettingsValues {
 	}
 	
 	/**
+	 * Sets the database name
+	 * @param databaseName
+	 * 		user set database name
+	 */
+	public void setDatabaseName(String databaseName) {
+		this.databaseName = databaseName;
+	}
+	
+	/**
 	 * Returns the user set username
 	 * @return
 	 * 		username
@@ -90,6 +100,15 @@ public class SettingsValues {
 	 */
 	public String getPort() {
 		return this.port;
+	}
+	
+	/**
+	 * Returns user set database name
+	 * @return
+	 * 		database name
+	 */
+	public String getDatabaseName() {
+		return this.databaseName;
 	}
 
 }
