@@ -33,10 +33,12 @@ public class SettingsDatabaseSettings {
 	private JFrame frame;
 	private JLabel lblUser;
 	private JLabel lblPassword;
+	private JLabel lblDBName;
 	private JLabel lblIP;
 	private JLabel lblPort;
 	private JTextField tfUser;
 	private JPasswordField tfPassword;
+	private JTextField tfDBName;
 	private JTextField tfIP;
 	private JTextField tfPort;
 	private JButton btnCancel;
@@ -56,7 +58,7 @@ public class SettingsDatabaseSettings {
 	 */
 	private void init() {
 		frame = new JFrame();
-		frame.setSize(300, 250);
+		frame.setSize(300, 300);
 		frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.PAGE_AXIS));
 		frame.setTitle("Database settings");
 		
@@ -70,6 +72,11 @@ public class SettingsDatabaseSettings {
 		frame.add(lblPassword);
 		tfPassword = new JPasswordField();
 		frame.add(tfPassword);
+		frame.add(Box.createRigidArea(new Dimension(10, 10)));
+		lblDBName = new JLabel("Database name");
+		frame.add(lblDBName);
+		tfDBName = new JTextField();
+		frame.add(tfDBName);
 		frame.add(Box.createRigidArea(new Dimension(10, 10)));
 		lblIP = new JLabel("IP:");
 		frame.add(lblIP);
@@ -108,9 +115,11 @@ public class SettingsDatabaseSettings {
 				if (SettingsChecker.checkString(tfUser.getText()) 
 						&& SettingsChecker.checkString(tfPassword.getPassword().toString()) 
 							&& SettingsChecker.checkIP(tfIP.getText()) 
-								&& SettingsChecker.checkPort(tfPort.getText())) {
+								&& SettingsChecker.checkPort(tfPort.getText())
+									&& SettingsChecker.checkString(tfDBName.getText())) {
 					settingsValues.setUser(tfUser.getText());
 					settingsValues.setPassword(tfPassword.getPassword().toString());
+					settingsValues.setDatabaseName(tfDBName.getText());
 					settingsValues.setIP(tfIP.getText());
 					settingsValues.setPort(tfPort.getText());
 					frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
@@ -130,6 +139,7 @@ public class SettingsDatabaseSettings {
 	private void displayValues() {
 		tfUser.setText(settingsValues.getUser());
 		tfPassword.setText(settingsValues.getPassword());
+		tfDBName.setText(settingsValues.getDatabaseName());
 		tfIP.setText(settingsValues.getIP());
 		tfPort.setText(settingsValues.getPort());
 	} 

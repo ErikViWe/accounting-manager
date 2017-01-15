@@ -52,6 +52,7 @@ public class SettingsHelper {
 			BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 			bufferedWriter.write("username\n");
 			bufferedWriter.write("password\n");
+			bufferedWriter.write("Database name\n");
 			bufferedWriter.write("000.000.000.000\n");
 			bufferedWriter.write("3306");
 			bufferedWriter.close();

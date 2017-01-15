@@ -56,6 +56,7 @@ public class Settings {
 			BufferedReader bufferedReader = new BufferedReader(fileReader);
 			settingsValues.setUser(bufferedReader.readLine());
 			settingsValues.setPassword(bufferedReader.readLine());
+			settingsValues.setDatabaseName(bufferedReader.readLine());
 			settingsValues.setIP(bufferedReader.readLine());
 			settingsValues.setPort(bufferedReader.readLine());
 			bufferedReader.close();
@@ -93,6 +94,7 @@ public class Settings {
 			BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 			bufferedWriter.write(settingsValues.getUser() + "\n");
 			bufferedWriter.write(settingsValues.getPassword() + "\n");
+			bufferedWriter.write(settingsValues.getDatabaseName() + "\n");
 			bufferedWriter.write(settingsValues.getIP() + "\n");
 			bufferedWriter.write(settingsValues.getPort() + "\n");
 			bufferedWriter.close();
