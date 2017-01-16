@@ -37,7 +37,7 @@ public class SettingsDatabaseSettings {
 	private JLabel lblIP;
 	private JLabel lblPort;
 	private JTextField tfUser;
-	private JPasswordField tfPassword;
+	private JTextField tfPassword;
 	private JTextField tfDBName;
 	private JTextField tfIP;
 	private JTextField tfPort;
@@ -70,7 +70,7 @@ public class SettingsDatabaseSettings {
 		frame.add(Box.createRigidArea(new Dimension(10, 10)));
 		lblPassword = new JLabel("Password:");
 		frame.add(lblPassword);
-		tfPassword = new JPasswordField();
+		tfPassword = new JTextField();
 		frame.add(tfPassword);
 		frame.add(Box.createRigidArea(new Dimension(10, 10)));
 		lblDBName = new JLabel("Database name");
@@ -113,12 +113,12 @@ public class SettingsDatabaseSettings {
 			
 			public void actionPerformed(ActionEvent e) {
 				if (SettingsChecker.checkString(tfUser.getText()) 
-						&& SettingsChecker.checkString(tfPassword.getPassword().toString()) 
+						&& SettingsChecker.checkString(tfPassword.getText()) 
 							&& SettingsChecker.checkIP(tfIP.getText()) 
 								&& SettingsChecker.checkPort(tfPort.getText())
 									&& SettingsChecker.checkString(tfDBName.getText())) {
 					settingsValues.setUser(tfUser.getText());
-					settingsValues.setPassword(tfPassword.getPassword().toString());
+					settingsValues.setPassword(tfPassword.getText());
 					settingsValues.setDatabaseName(tfDBName.getText());
 					settingsValues.setIP(tfIP.getText());
 					settingsValues.setPort(tfPort.getText());
